@@ -36,7 +36,7 @@ func Run(svc Service) error {
 
         for {
                 s := <-signalChan
-                if ok && sh.HandleSignal(s) {
+                if !ok || sh.HandleSignal(s) {
                         break
                 }
         }
